@@ -1,0 +1,10 @@
+{
+    "textErrorLoginAssertion":"Epic sadface: Username and password do not match any user in this service",
+    "testLokedErrorLoginAssertion":"Epic sadface: Sorry, this user has been locked out.",
+    "textSuccessfulLoginAssertion":"Products",
+    "textSuccessfulBuyAssertion":"Thank you for your order!",
+    "textCartAssertion":"Your Cart",
+    "textCheckoutAssertion":"Your Information",
+    "textCheckoutCompletedAssertion1":"Overview",
+    "textCheckoutCompletedAssertion2":"Complete!"
+}
