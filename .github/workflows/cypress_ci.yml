@@ -17,12 +17,9 @@ jobs:
 
       - name: Cypress tests
         # normally you would write
-        # uses: cypress-io/github-action@v6
-        uses: ./
-        # the parameters below are only necessary
-        # because we are running these examples in a monorepo
+        uses: cypress-io/github-action@v6
         with:
-          working-directory: examples/basic
+          working-directory: cypress
           # just for full picture after installing Cypress
           # print information about detected browsers, etc
           # see https://on.cypress.io/command-line#cypress-info
