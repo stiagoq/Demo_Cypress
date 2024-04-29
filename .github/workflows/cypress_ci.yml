@@ -1,0 +1,35 @@
+#Nombre de la actions
+name: run_testCY
+
+#Donde se va a correr
+on: 
+  push:
+    branches: [ main ]
+
+#El area de trabajo a ejecutar
+jobs: 
+ cypress-run:
+    runs-on: ubuntu-lastest
+    permissions: 
+      contents: write
+
+#Los pasos a realizar donde va a ir las action del area de trabajo
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          build: npm run build
+          start: npm start
+          browser: chrome
+
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+            commit_message: update stats
+            commit_user_name: Santiago [Github actions]
+            commit_user_email: stiagoqui@gmail.com
+            commit_author: Santiago
+            
