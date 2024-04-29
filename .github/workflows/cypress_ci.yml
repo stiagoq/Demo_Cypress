@@ -1,20 +1,29 @@
-#Nombre de la actions
-name: run_testCY
+name: example-basic
+# This workflow represents a set of basic End-to-End tests
+on:
+  push:
+    branches:
+      - 'master'
+  pull_request:
+  workflow_dispatch:
 
-#Donde se va a correr
-on: [push]
+jobs:
 
-#El area de trabajo a ejecutar
-jobs: 
- cypress-run:
-    runs-on: ubuntu-lastest
-
-#Los pasos a realizar donde va a ir las action del area de trabajo
+  basic-ubuntu-20:
+    runs-on: ubuntu-20.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Cypress.io
-        uses: cypress-io/github-action@v6
+      - name: Cypress tests
+        # normally you would write
+        # uses: cypress-io/github-action@v6
+        uses: ./
+        # the parameters below are only necessary
+        # because we are running these examples in a monorepo
         with:
-          start: npm start
+          working-directory: examples/basic
+          # just for full picture after installing Cypress
+          # print information about detected browsers, etc
+          # see https://on.cypress.io/command-line#cypress-info
+          build: npx cypress info
