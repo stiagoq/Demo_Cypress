@@ -18,10 +18,10 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
 
-      - name: cypress run
+      - name: Cypress.io
         uses: cypress-io/github-action@v6
         with:
-          build: npm run build
+          #build: npm run build
           start: npm start
           browser: chrome
 
